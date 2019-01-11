@@ -21,7 +21,7 @@ public class Generics {
     List<Integer> ints = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
     List<String>  strs = Arrays.asList("tout", "titi", "ototo", "jean", "tous", "taratata");
 
-    // TODO - Ne retourner que les nombres paires.
+    // TODO - Ne retourner que les nombres pairs.
     ints = filter(ints, i -> true);
     // TODO - Multiplier par 2 chaque élément de la liste.
     ints = map(ints, i -> i);
