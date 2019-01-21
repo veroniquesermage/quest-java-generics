@@ -21,9 +21,6 @@ public class Generics {
         List<Integer> ints = Arrays.asList(1,2,3,4,5,6,7,8,9,10);
         List<String>  strs = Arrays.asList("tout", "titi", "ototo", "jean", "tous", "taratata");
 
-        // Ne retourner que les nombres pairs.
-        //ints = filter(ints, i -> i%2==0);
-
         ints.stream()
                 .filter( i -> i%2 == 0)
                 .map(i -> i*2)
@@ -34,6 +31,5 @@ public class Generics {
                 .map(i -> i.toUpperCase())
                 .forEach(System.out::println);
     }
-
 }
 
