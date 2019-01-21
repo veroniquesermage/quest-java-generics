@@ -22,58 +22,18 @@ public class Generics {
         List<String>  strs = Arrays.asList("tout", "titi", "ototo", "jean", "tous", "taratata");
 
         // Ne retourner que les nombres pairs.
+        //ints = filter(ints, i -> i%2==0);
 
-        ints = filter(ints, i -> i%2==0);
-        // Multiplier par 2 chaque élément de la liste.
+        ints.stream()
+                .filter( i -> i%2 == 0)
+                .map(i -> i*2)
+                .forEach(System.out::println);
 
-        ints = map(ints, i -> i*2);
-        for (Integer i: ints) System.out.println(i);
-
-        // Ne retourner que les Strings contenant au moins 2 lettres t.
-        strs = filter(strs, i -> i.matches("((.*[a-z])(t|T{1,}).*)"));
-
-        // Passer en majuscule toutes les Strings
-        strs = map(strs, i -> i.toUpperCase());
-        for (String s: strs) System.out.println(s);
+        strs.stream()
+                .filter(i -> i.matches(".*[tT].*[tT].*"))
+                .map(i -> i.toUpperCase())
+                .forEach(System.out::println);
     }
 
-    /**
-     * Returns a list consisting of the elements of a collection that match the given predicate.
-     * @param c Collection<T>: The input collection
-     * @param p The predicate
-     * @param <T> Type of the element in the collection
-     * @return A list that match the given filter.
-     */
-    private <T> List<T> filter(Collection<T> c, Predicate<T> p) {
-        List<T> result = new ArrayList<>();
-        for (T item:c) {
-            if (p.filter(item))
-                result.add(item);
-        }
-        // TODO - Ajouter le code ici
-        // Retourner 'result' contenant les éléments de Collection filtrés par la méthode o.filter().
-        return result;
-    }
-
-    /**
-     * Returns a list consisting of the results of applying the given function to the elements of the collection.
-     * @param c Collection<T>: The input collection
-     * @param m The predicate
-     * @param <T> Type of the element in the collection
-     * @param <U> Type of the element in the returned list
-     * @return A list that match the given mapper.
-     */
-    private <T, U> List<U> map(Collection<T> c, Mapper<T, U> m) {
-        List<U> result = new ArrayList<>();
-
-        for (T item:c) {
-            result.add(m.map(item));
-        }
-
-
-        // TODO - Ajouter le code ici
-        // Retourner 'result' contenant les éléments de la Collection modifiés par la méthode m.map().
-        return result;
-    }
 }
 
