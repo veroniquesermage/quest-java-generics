@@ -30,7 +30,7 @@ public class Generics {
         for (Integer i: ints) System.out.println(i);
 
         // Ne retourner que les Strings contenant au moins 2 lettres t.
-        strs = filter(strs, i -> i.matches("((.*[a-z])(t|T{1,}).*)"));
+        strs = filter(strs, i -> i.matches(".*[tT].*[tT].*"));
 
         // Passer en majuscule toutes les Strings
         strs = map(strs, i -> i.toUpperCase());
